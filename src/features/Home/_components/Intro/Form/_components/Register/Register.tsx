@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { fetchRegister } from './_api/register';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
-import styles from './register.module.css';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
+import styles from './register.module.css';
 
 interface IRegisterProps {
 };
@@ -20,10 +20,6 @@ const Register: FC<IRegisterProps> = (props) => {
   const [ isErrorRegister, setIsErrorRegister ] = useState(false);
   const [ registerForm, setRegisterForm ] = useState<IRegisterForm>(initRegisterForm);
 
-
-  function handleForgotPassword() {
-    return '';
-  };
 
   function simpleValidate():Boolean {
     const allFilled = Object
@@ -64,21 +60,16 @@ const Register: FC<IRegisterProps> = (props) => {
 
   return (
     <div className={styles['register']}>
-      <div className={styles['inputs-container']}>
-        <RegisterInputs
-          registerForm={registerForm}
-          setRegisterForm={setRegisterForm}
-        />
-      </div>
+      <RegisterInputs
+        registerForm={registerForm}
+        setRegisterForm={setRegisterForm}
+      />
       {isErrorRegister && (
         <ErrorBanner
           message='Kindly fill all the fields properly.'
         />
       )}
       <div className={styles['buttons-container']}>
-        <p className={styles['btn-forgot" onClick={handleForgotPassword']}>
-          Forgot Password?
-        </p>
         <button onClick={handleRegister}>
           Register
         </button>

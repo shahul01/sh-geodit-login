@@ -8,3 +8,11 @@
   cursor: pointer;
   user-select: none;
 }
+
+.login .notes h3 {
+  font-size: 12px;
+}
+
+.login .notes h3 {
+  font-size: 14px;
+}
