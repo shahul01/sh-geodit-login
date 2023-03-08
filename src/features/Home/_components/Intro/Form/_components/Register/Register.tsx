@@ -1,14 +1,22 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './register.module.css';
-import RegisterInputs from './_components/RegisterInputs/RegisterInputs';
+import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
 
 interface IRegisterProps {
 };
 
 const Register: FC<IRegisterProps> = (props) => {
 
+  const initRegisterForm: IRegisterForm = {
+    firstName: '',
+    lastName: '',
+    username: '',
+    password: '',
+    phoneNumber: '',
+  };
+
   const [ isErrorRegister, setIsErrorRegister ] = useState(false);
-  const [ registerForm, setRegisterForm ] = useState([]);
+  const [ registerForm, setRegisterForm ] = useState<IRegisterForm>(initRegisterForm);
 
 
   function handleForgotPassword() {
@@ -18,17 +26,22 @@ const Register: FC<IRegisterProps> = (props) => {
   function handleRegister() {
 
     console.log('registerForm', registerForm);
-    return '';
+
+    return handleResetForm();
   };
 
   function handleResetForm() {
+    setRegisterForm(initRegisterForm);
     return '';
   };
 
   return (
     <div className={styles['register']}>
       <div className={styles['inputs-container']}>
-        <RegisterInputs />
+        <RegisterInputs
+          registerForm={registerForm}
+          setRegisterForm={setRegisterForm}
+        />
       </div>
       <div className={styles['error-banner']}>
         {

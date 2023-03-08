@@ -1,32 +1,65 @@
-import { FC, useEffect, useState } from 'react';
+import { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import styles from './registerInputs.module.css';
 
-interface IRegisterInputsProps {
+export interface IRegisterForm {
+  firstName: string;
+  lastName: string;
+  username: string;
+  password: string;
+  phoneNumber: string;
 };
 
-const RegisterInputs: FC<IRegisterInputsProps> = (props) => {
+interface IRegisterInputsProps {
+  registerForm: IRegisterForm;
+  setRegisterForm: Dispatch<SetStateAction<IRegisterForm>>;
+};
+
+const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm}) => {
+
+  function handleChangeRegister(e:ChangeEvent<HTMLInputElement>) {
+    setRegisterForm({
+      ...registerForm,
+      [e.target?.name]: e.target?.value
+    });
+    return '';
+  };
 
   return (
     <div className={styles['register-inputs']}>
       <input
         type="text"
+        name="firstName"
         placeholder='First name'
+        onChange={handleChangeRegister}
+        value={registerForm.firstName}
       />
       <input
         type="text"
-        placeholder='Last name'
+        name="lastName"
+        placeholder="Last name"
+        onChange={handleChangeRegister}
+        value={registerForm.lastName}
       />
       <input
         type="text"
-        placeholder='Username'
-      />
-      <input
-        type="text"
-        placeholder='Phone number'
+        name="username"
+        placeholder="Username"
+        onChange={handleChangeRegister}
+        value={registerForm.username}
       />
       <input
         type="password"
-        placeholder='password'
+        name="password"
+        placeholder="Password"
+        onChange={handleChangeRegister}
+        value={registerForm.password}
+      />
+      <input
+        type="text"
+        name="phoneNumber"
+        placeholder="Phone number"
+        onChange={handleChangeRegister}
+        value={registerForm.phoneNumber}
       />
     </div>
   )
