@@ -30,6 +30,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         type="text"
         name="firstName"
         placeholder='First name'
+        required={true}
         onChange={handleChangeRegister}
         value={registerForm.firstName}
       />
@@ -37,6 +38,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         type="text"
         name="lastName"
         placeholder="Last name"
+        required={true}
         onChange={handleChangeRegister}
         value={registerForm.lastName}
       />
@@ -44,6 +46,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         type="text"
         name="username"
         placeholder="Username"
+        required={true}
         onChange={handleChangeRegister}
         value={registerForm.username}
       />
@@ -51,6 +54,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         type="password"
         name="password"
         placeholder="Password"
+        required={true}
         onChange={handleChangeRegister}
         value={registerForm.password}
       />
@@ -58,6 +62,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         type="text"
         name="phoneNumber"
         placeholder="Phone number"
+        required={true}
         onChange={handleChangeRegister}
         value={registerForm.phoneNumber}
       />

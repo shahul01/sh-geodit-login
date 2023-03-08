@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './register.module.css';
+import { fetchRegister } from './_api/register';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
 
 interface IRegisterProps {
@@ -23,10 +24,25 @@ const Register: FC<IRegisterProps> = (props) => {
     return '';
   };
 
-  function handleRegister() {
-
+  async function handleRegister() {
     console.log('registerForm', registerForm);
 
+    const payload = {
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFTOKEN": "fgpkZS0u7b0CBpcHSE68nlAuzZ77PIG6mkDLVHbIwG4d3sSe7d9jJZhrwftzBXHX"
+      },
+      data: JSON.stringify({
+        "first_name": registerForm.firstName,
+        "last_name": registerForm.lastName,
+        "username": registerForm.username,
+        "password": registerForm.password,
+        "phone_number": registerForm.phoneNumber,
+      }),
+    };
+
+    const resFetchRegister = await fetchRegister(payload);
+    console.log(`resFetchRegister: `, resFetchRegister);
     return handleResetForm();
   };
 
