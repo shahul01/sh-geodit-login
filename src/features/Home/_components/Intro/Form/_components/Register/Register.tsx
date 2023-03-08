@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import styles from './register.module.css';
 import { fetchRegister } from './_api/register';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
+import styles from './register.module.css';
 
 interface IRegisterProps {
 };
@@ -24,8 +24,17 @@ const Register: FC<IRegisterProps> = (props) => {
     return '';
   };
 
+  function simpleValidate():Boolean {
+    return Object.values(registerForm)
+      ?.every(currField => !!currField);
+  };
+
   async function handleRegister() {
     console.log('registerForm', registerForm);
+    const allFilled = simpleValidate();
+    if (!allFilled) return setIsErrorRegister(true);
+
+    setIsErrorRegister(false);
 
     const payload = {
       headers: {
@@ -41,8 +50,8 @@ const Register: FC<IRegisterProps> = (props) => {
       }),
     };
 
-    const resFetchRegister = await fetchRegister(payload);
-    console.log(`resFetchRegister: `, resFetchRegister);
+    // const resFetchRegister = await fetchRegister(payload);
+    // console.log(`resFetchRegister: `, resFetchRegister);
     return handleResetForm();
   };
 
@@ -62,7 +71,7 @@ const Register: FC<IRegisterProps> = (props) => {
         {
           isErrorRegister && (
             <div className={styles['error-text']}>
-              Incorrect username or password
+              Kindly fill all the data properly.
             </div>
           )
         }
