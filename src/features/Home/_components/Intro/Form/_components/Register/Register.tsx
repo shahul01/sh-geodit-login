@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { fetchRegister } from './_api/register';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
 import styles from './register.module.css';
+import ErrorBanner from '../ErrorBanner/ErrorBanner';
 
 interface IRegisterProps {
 };
@@ -69,15 +70,11 @@ const Register: FC<IRegisterProps> = (props) => {
           setRegisterForm={setRegisterForm}
         />
       </div>
-      <div className={styles['error-banner']}>
-        {
-          isErrorRegister && (
-            <div className={styles['error-text']}>
-              Kindly fill all the data properly.
-            </div>
-          )
-        }
-      </div>
+      {isErrorRegister && (
+        <ErrorBanner
+          message='Kindly fill all the fields properly.'
+        />
+      )}
       <div className={styles['buttons-container']}>
         <p className={styles['btn-forgot" onClick={handleForgotPassword']}>
           Forgot Password?

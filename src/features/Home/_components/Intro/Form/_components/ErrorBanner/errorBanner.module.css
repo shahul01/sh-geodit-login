@@ -1,0 +1,11 @@
+.error-banner {
+  height: 1.5rem;
+  width: 26.25rem;
+}
+
+.error-text {
+  padding: 0.188rem 0.625rem;
+  color: #EB5757;
+  background-color: #FFDADA;
+  font-size: 0.75rem;
+}

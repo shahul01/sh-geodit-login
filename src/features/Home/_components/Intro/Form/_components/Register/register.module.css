@@ -2,18 +2,6 @@
 
 }
 
-.register .error-banner {
-  height: 1.5rem;
-  width: 26.25rem;
-}
-
-.register .error-text {
-  padding: 0.188rem 0.625rem;
-  color: #EB5757;
-  background-color: #FFDADA;
-  font-size: 0.75rem;
-}
-
 .register button {
   padding: 0.5rem 2rem;
   width: 8rem;
