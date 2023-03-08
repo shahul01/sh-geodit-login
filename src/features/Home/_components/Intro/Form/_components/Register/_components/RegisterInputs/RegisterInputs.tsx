@@ -17,11 +17,10 @@ interface IRegisterInputsProps {
 const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm}) => {
 
   function handleChangeRegister(e:ChangeEvent<HTMLInputElement>) {
-    setRegisterForm({
+    return setRegisterForm({
       ...registerForm,
       [e.target?.name]: e.target?.value
     });
-    return '';
   };
 
   return (

@@ -9,7 +9,7 @@ interface IRegisterProps {
 
 const Register: FC<IRegisterProps> = (props) => {
 
-  const initRegisterForm: IRegisterForm = {
+  const initialRegisterForm: IRegisterForm = {
     firstName: '',
     lastName: '',
     username: '',
@@ -18,7 +18,7 @@ const Register: FC<IRegisterProps> = (props) => {
   };
 
   const [ isErrorRegister, setIsErrorRegister ] = useState(false);
-  const [ registerForm, setRegisterForm ] = useState<IRegisterForm>(initRegisterForm);
+  const [ registerForm, setRegisterForm ] = useState<IRegisterForm>(initialRegisterForm);
 
 
   function simpleValidate():Boolean {
@@ -55,7 +55,7 @@ const Register: FC<IRegisterProps> = (props) => {
   };
 
   function handleResetForm() {
-    return setRegisterForm(initRegisterForm);;
+    return setRegisterForm(initialRegisterForm);;
   };
 
   return (

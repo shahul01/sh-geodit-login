@@ -1,20 +1,42 @@
-import { FC, useEffect, useState } from 'react';
+import { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import styles from './loginInputs.module.css';
 
-interface ILoginInputsProps {
+export interface ILoginForm {
+  username: string;
+  password: string;
 };
 
-const LoginInputs: FC<ILoginInputsProps> = (props) => {
+interface ILoginInputsProps {
+  loginForm: ILoginForm;
+  setLoginForm: Dispatch<SetStateAction<ILoginForm>>;
+};
+
+const LoginInputs: FC<ILoginInputsProps> = ({loginForm, setLoginForm}) => {
+
+  function handleChangeLogin(e:ChangeEvent<HTMLInputElement>) {
+    return setLoginForm({
+      ...loginForm,
+      [e.target?.name]: e.target?.value
+    });
+  };
 
   return (
     <div className={styles['login-inputs']}>
       <input
         type="text"
+        name="username"
         placeholder='Username'
+        required={true}
+        onChange={handleChangeLogin}
+        value={loginForm.username}
       />
       <input
-        type="text"
+        type="password"
+        name="password"
         placeholder='Password'
+        required={true}
+        onChange={handleChangeLogin}
+        value={loginForm.password}
       />
 
     </div>

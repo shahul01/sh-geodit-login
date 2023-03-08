@@ -1,13 +1,18 @@
 import { FC, useEffect, useState } from 'react';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
+import LoginInputs, { ILoginForm } from './_components/LoginInputs/LoginInputs';
 import styles from './login.module.css';
-import LoginInputs from './_components/LoginInputs/LoginInputs';
 
 interface ILoginProps {
 };
 
 const Login: FC<ILoginProps> = (props) => {
+  const initialLoginForm:ILoginForm = {
+    username: '',
+    password: ''
+  };
   const [ isErrorLogin, setIsErrorLogin ] = useState(false);
+  const [ loginForm, setLoginForm ] = useState<ILoginForm>(initialLoginForm);
 
   function handleForgotPassword() {
     return '';
@@ -15,12 +20,16 @@ const Login: FC<ILoginProps> = (props) => {
 
 
   function handleLogin() {
+    console.log(`loginForm: `, loginForm);
     return '';
   };
 
   return (
     <div className={styles['login']}>
-      <LoginInputs />
+      <LoginInputs
+        loginForm={loginForm}
+        setLoginForm={setLoginForm}
+      />
 
       {isErrorLogin && (
         <ErrorBanner
