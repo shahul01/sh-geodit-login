@@ -1,0 +1,10 @@
+
+.register-inputs input {
+  padding: 4px;
+  height: 2rem;
+  width: 26.25rem;
+}
+
+.register-inputs input:focus {
+  outline: none;
+}
