@@ -1,0 +1,10 @@
+
+.login-inputs input {
+  padding: 4px;
+  height: 2rem;
+  width: 26.25rem;
+}
+
+.login-inputs input:focus {
+  outline: none;
+}

@@ -8,7 +8,7 @@ interface IFormBoxProps {
 };
 
 const FormBox: FC<IFormBoxProps> = (props) => {
-  const [accessPage, setAccessPage] = useState('register');
+  const [accessPage, setAccessPage] = useState('login');
 
 
   function handleChangeAccess(page:string):void {

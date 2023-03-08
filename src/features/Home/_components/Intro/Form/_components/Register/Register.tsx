@@ -25,8 +25,10 @@ const Register: FC<IRegisterProps> = (props) => {
   };
 
   function simpleValidate():Boolean {
-    return Object.values(registerForm)
+    const allFilled = Object
+      .values(registerForm)
       ?.every(currField => !!currField);
+    return allFilled || false;
   };
 
   async function handleRegister() {
@@ -50,8 +52,8 @@ const Register: FC<IRegisterProps> = (props) => {
       }),
     };
 
-    // const resFetchRegister = await fetchRegister(payload);
-    // console.log(`resFetchRegister: `, resFetchRegister);
+    const resFetchRegister = await fetchRegister(payload);
+    console.log(`resFetchRegister: `, resFetchRegister);
     return handleResetForm();
   };
 

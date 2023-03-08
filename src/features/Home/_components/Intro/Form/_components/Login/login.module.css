@@ -1,0 +1,10 @@
+.login {
+
+}
+
+.login button {
+  padding: 0.5rem 2rem;
+  width: 8rem;
+  cursor: pointer;
+  user-select: none;
+}
