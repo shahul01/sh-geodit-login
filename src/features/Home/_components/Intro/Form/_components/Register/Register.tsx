@@ -31,8 +31,7 @@ const Register: FC<IRegisterProps> = (props) => {
   };
 
   function handleResetForm() {
-    setRegisterForm(initRegisterForm);
-    return '';
+    return setRegisterForm(initRegisterForm);;
   };
 
   return (
