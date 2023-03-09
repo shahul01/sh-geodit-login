@@ -1,3 +1,4 @@
+import Input from '@/components/FormElements/Input/Input';
 import { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import styles from './loginInputs.module.css';
 
@@ -22,7 +23,7 @@ const LoginInputs: FC<ILoginInputsProps> = ({loginForm, setLoginForm}) => {
 
   return (
     <div className={styles['login-inputs']}>
-      <input
+      <Input
         type="text"
         name="username"
         placeholder='Username'
@@ -30,7 +31,7 @@ const LoginInputs: FC<ILoginInputsProps> = ({loginForm, setLoginForm}) => {
         onChange={handleChangeLogin}
         value={loginForm.username}
       />
-      <input
+      <Input
         type="password"
         name="password"
         placeholder='Password'
