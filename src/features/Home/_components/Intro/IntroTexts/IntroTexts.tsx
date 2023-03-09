@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import styles from './introText.module.css';
 import Button from '@/components/FormElements/Button/Button';
 
 interface IIntroTextsProps {
@@ -7,7 +8,7 @@ interface IIntroTextsProps {
 const IntroTexts: FC<IIntroTextsProps> = (props) => {
 
   return (
-    <div className='intro-texts'>
+    <div className={styles['intro-texts']}>
       <h1>Geodit</h1>
       <p>One Stop Solution to all your GIS surveys</p>
       <h3>Now, store data on your server.</h3>

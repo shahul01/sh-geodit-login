@@ -14,7 +14,6 @@ const Intro: FC<IIntroProps> = (props) => {
     <div className={styles['intro']}>
       <Logo />
 
-
       <div className={styles['content']}>
         <IntroTexts />
         <IntroBanner />
