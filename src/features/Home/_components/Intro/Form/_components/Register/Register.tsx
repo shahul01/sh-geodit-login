@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
-import { simpleValidate, urlPaths } from '@/helpers/misc';
-import { fetchGet } from '@/helpers/_api';
-import styles from './register.module.css';
 import Button from '@/components/FormElements/Button/Button';
+import useLogin from '@/helpers/hooks/useLogin';
+import { fetchGet } from '@/helpers/_api';
+import { simpleValidate, urlPaths } from '@/helpers/misc';
+import styles from './register.module.css';
 
 interface IRegisterProps {
 };
@@ -21,6 +22,7 @@ const Register: FC<IRegisterProps> = (props) => {
 
   const [ isErrorRegister, setIsErrorRegister ] = useState(false);
   const [ registerForm, setRegisterForm ] = useState<IRegisterForm>(initialRegisterForm);
+  const { login } = useLogin();
 
   async function handleRegister() {
     console.log('registerForm', registerForm);
@@ -29,7 +31,7 @@ const Register: FC<IRegisterProps> = (props) => {
 
     setIsErrorRegister(false);
 
-    const payload = {
+    const payloadRegister = {
       urlPath: urlPaths['register'],
       headers: {
         "Content-Type": "application/json",
@@ -44,9 +46,22 @@ const Register: FC<IRegisterProps> = (props) => {
       }),
     };
 
-    const resFetchRegister = await fetchGet(payload);
-    console.log(`resFetchRegister: `, resFetchRegister);
-    return resetForm();
+    const payloadLogin = {
+      form: {
+        username: registerForm.username,
+        password: registerForm.password
+      }
+    };
+
+    try {
+      const resFetchRegister = await fetchGet(payloadRegister);
+      console.log(`resFetchRegister: `, resFetchRegister);
+      await login(payloadLogin);
+      return resetForm();
+
+    } catch (caughtError) {
+      return console.error(caughtError);
+    };
   };
 
   function resetForm() {

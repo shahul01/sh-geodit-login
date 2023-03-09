@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import LoginInputs, { ILoginForm } from './_components/LoginInputs/LoginInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
-import { simpleValidate } from '@/helpers/misc';
-import styles from './login.module.css';
 import Button from '@/components/FormElements/Button/Button';
 import useLogin from '@/helpers/hooks/useLogin';
+import { simpleValidate } from '@/helpers/misc';
+import styles from './login.module.css';
 
 interface ILoginProps {
 };
@@ -30,7 +30,6 @@ const Login: FC<ILoginProps> = (props) => {
   };
   const [ isErrorLogin, setIsErrorLogin ] = useState(false);
   const [ loginForm, setLoginForm ] = useState<ILoginForm>(initialLoginForm);
-  const [ tokens, setTokens ] = useState(initialToken);
   const { login } = useLogin();
 
   function handleForgotPassword() {
