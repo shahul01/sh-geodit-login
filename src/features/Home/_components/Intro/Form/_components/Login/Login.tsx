@@ -91,8 +91,8 @@ const Login: FC<ILoginProps> = (props) => {
           />
         )}
       </div>
-      <div className="buttons-container">
-        <p className={styles['btn-forgot']} onClick={handleForgotPassword} >
+      <div className={styles['buttons-container']}>
+        <p onClick={handleForgotPassword} >
           Forgot Password?
         </p>
         <button onClick={handleLogin}>

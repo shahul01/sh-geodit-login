@@ -2,8 +2,19 @@
 
 }
 
-.error-banner-container {
+.login .error-banner-container {
   height: 1.5rem;
+}
+
+.login .buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login .buttons-container p {
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
 }
 
 .login button {
