@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
-import ErrorBanner from '../ErrorBanner/ErrorBanner';
 import LoginInputs, { ILoginForm } from './_components/LoginInputs/LoginInputs';
+import ErrorBanner from '../ErrorBanner/ErrorBanner';
+import { simpleValidate } from '@/helpers/misc';
 import styles from './login.module.css';
 
 interface ILoginProps {
@@ -18,11 +19,20 @@ const Login: FC<ILoginProps> = (props) => {
     return '';
   };
 
-
   function handleLogin() {
     console.log(`loginForm: `, loginForm);
-    return '';
+
+    const allFilled = simpleValidate(loginForm);
+    if (!allFilled) return setIsErrorLogin(true);
+
+    setIsErrorLogin(false);
+
+    return resetForm();
   };
+
+  function resetForm() {
+    return setLoginForm(initialLoginForm);
+  }
 
   return (
     <div className={styles['login']}>

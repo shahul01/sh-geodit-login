@@ -1,7 +1,8 @@
 import { FC, useEffect, useState } from 'react';
-import { fetchRegister } from './_api/register';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
+import { simpleValidate } from '@/helpers/misc';
+import { fetchRegister } from './_api/register';
 import styles from './register.module.css';
 
 interface IRegisterProps {
@@ -21,16 +22,9 @@ const Register: FC<IRegisterProps> = (props) => {
   const [ registerForm, setRegisterForm ] = useState<IRegisterForm>(initialRegisterForm);
 
 
-  function simpleValidate():Boolean {
-    const allFilled = Object
-      .values(registerForm)
-      ?.every(currField => !!currField);
-    return allFilled || false;
-  };
-
   async function handleRegister() {
     console.log('registerForm', registerForm);
-    const allFilled = simpleValidate();
+    const allFilled = simpleValidate(registerForm);
     if (!allFilled) return setIsErrorRegister(true);
 
     setIsErrorRegister(false);
@@ -51,10 +45,10 @@ const Register: FC<IRegisterProps> = (props) => {
 
     const resFetchRegister = await fetchRegister(payload);
     console.log(`resFetchRegister: `, resFetchRegister);
-    return handleResetForm();
+    return resetForm();
   };
 
-  function handleResetForm() {
+  function resetForm() {
     return setRegisterForm(initialRegisterForm);;
   };
 
