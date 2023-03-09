@@ -4,6 +4,7 @@ import ErrorBanner from '../ErrorBanner/ErrorBanner';
 import { simpleValidate, urlPaths } from '@/helpers/misc';
 import { fetchGet } from '@/helpers/_api';
 import styles from './register.module.css';
+import Button from '@/components/FormElements/Button/Button';
 
 interface IRegisterProps {
 };
@@ -66,9 +67,10 @@ const Register: FC<IRegisterProps> = (props) => {
         )}
       </div>
       <div className={styles['buttons-container']}>
-        <button onClick={handleRegister}>
-          Register
-        </button>
+        <Button
+          onClick={handleRegister}
+          name='Register'
+        />
       </div>
       <div className={styles['notes']}>
       </div>
