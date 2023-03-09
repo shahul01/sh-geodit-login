@@ -6,21 +6,37 @@
   height: 27rem;
 }
 
-.clients .headers {
+.clients .left {
+  width: 35.625rem;
+}
+
+.clients .left .headers {
   margin-bottom: 3.625rem;
 }
 
-.clients .headers h2 {
+.clients .left .headers h2 {
   margin-bottom: 0.5rem;
   font-size:  2.25rem;
   font-weight: 700;
 }
 
-.clients .texts {
-  width: 35.625rem;
+.clients .left .sub-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.clients .image-cards-container {
+.clients .left .sub-header .buttons-container {
+  display: flex;
+  gap: 0.938rem;
+}
+
+.clients .left .sub-header .buttons-container .button {
+  cursor: pointer;
+  user-select: none;
+}
+
+.clients .left .image-cards-container {
   display: flex;
   gap: 1.875rem;
   flex-wrap: wrap;

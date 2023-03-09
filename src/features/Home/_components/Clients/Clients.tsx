@@ -1,6 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import ImageCard from './ImageCard/ImageCard';
+import ImageArrowLeft from '@/public/images/svg/icons/arrow-left.svg';
+import ImageArrowRight from '@/public/images/svg/icons/arrow-right.svg';
 import ImageAIILSG from '@/public/images/svg/clients/client1-AIILSG.svg';
 import ImageTraffic from '@/public/images/svg/clients/client2-traffic.svg';
 import ImageWRI from '@/public/images/svg/clients/client3-wri.svg';
@@ -21,13 +23,22 @@ const Clients: FC<IClientsProps> = (props) => {
 
   return (
     <div className={styles['clients']}>
-      <div className={styles['texts']}>
+      <div className={styles['left']}>
         <div className={styles['headers']}>
           <h2>Our Clients</h2>
           <div className={styles['sub-header']}>
             <p>{"It's all about clients we care a lot for them."}</p>
             <div className={styles['buttons-container']}>
-
+              <Image
+                className={styles['button']}
+                src={ImageArrowLeft}
+                alt="Left arrow"
+              />
+              <Image
+                className={styles['button']}
+                src={ImageArrowRight}
+                alt="Right arrow"
+              />
             </div>
           </div>
 
