@@ -3,6 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid hsl(var(--theme-primary));
+  box-sizing: content-box;
+  border-width: 1px;
+  border-style: solid;
+  border-image: linear-gradient(
+    258.25deg,
+    hsla(var(--theme-primary), 1) 0%,
+    hsla(var(--theme-primary), 0) 100%
+  );
+  border-image-slice: 1;
   width: 16.375rem;
 }
