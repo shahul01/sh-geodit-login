@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import Header from './_components/Header';
+import Header from './_components/Header/Header';
 import FormBox from './_components/FormBox/FormBox';
 import styles from './form.module.css';
 

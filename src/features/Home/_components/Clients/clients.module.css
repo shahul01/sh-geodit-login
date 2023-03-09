@@ -1,0 +1,16 @@
+.clients {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7.5rem;
+}
+
+.clients .texts {
+  width: 35.625rem;
+}
+
+.clients .image-cards-container {
+  display: flex;
+  gap: 1.875rem;
+  flex-wrap: wrap;
+}

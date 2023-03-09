@@ -1,7 +1,7 @@
 .intro-banner {
-  position: absolute;
-  top: 17.7rem;
-  left: 20rem;
+  position: relative;
+  top: -1rem;
+  left: 12rem;
   width: 29.875rem;
   z-index: 5;
 }

@@ -1,0 +1,8 @@
+
+.image-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid hsl(var(--theme-primary));
+  width: 16.375rem;
+}

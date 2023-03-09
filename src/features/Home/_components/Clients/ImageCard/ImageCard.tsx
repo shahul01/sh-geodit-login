@@ -1,5 +1,6 @@
 import Image, {StaticImageData } from 'next/image';
 import { FC, useEffect, useState } from 'react';
+import styles from './imageCard.module.css';
 
 interface IImageCardProps {
   src: string | StaticImageData ;
@@ -9,7 +10,7 @@ interface IImageCardProps {
 const ImageCard: FC<IImageCardProps> = (props) => {
 
   return (
-    <div className='image-card'>
+    <div className={styles['image-card']}>
       <Image
         src={props.src}
         alt={props.alt}
