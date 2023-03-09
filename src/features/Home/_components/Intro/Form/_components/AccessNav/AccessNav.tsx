@@ -1,8 +1,11 @@
 import { FC, useEffect, useState } from 'react';
 import styles from './accessNav.module.css';
 
+export type TPage = 'login'|'register';
+
 interface IAccessNavProps {
-  handleChangeAccess: (arg0:string)=>void;
+  handleChangeAccess: (arg0:TPage)=>void;
+  currAccess: 'login' | 'register';
 };
 
 const AccessNav: FC<IAccessNavProps> = (props) => {
@@ -11,11 +14,11 @@ const AccessNav: FC<IAccessNavProps> = (props) => {
     <div className={styles['access-nav']}>
       <div className={styles['nav-button']}>
         <span onClick={() => props.handleChangeAccess('login')}>Login</span>
-        <hr />
+        {props.currAccess === 'login' && <hr />}
       </div>
       <div className={styles['nav-button']}>
         <span onClick={() => props.handleChangeAccess('register')}>Register</span>
-        <hr />
+        {props.currAccess === 'register' && <hr />}
       </div>
     </div>
   )

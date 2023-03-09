@@ -3,7 +3,6 @@
   gap: 1.875rem;
   font-size: 1.125rem;
   font-weight: bold;
-  text-decoration: underlined;
   cursor: pointer;
   user-select: none;
 }
@@ -13,5 +12,9 @@
 }
 
 .access-nav span {
-  margin-right: 1.875rem;
+  margin: auto;
+}
+
+.access-nav hr {
+  margin-top: 0.5rem;
 }

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react';
-import AccessNav from '../AccessNav/AccessNav';
+import AccessNav, { TPage } from '../AccessNav/AccessNav';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import styles from './formBox.module.css';
@@ -8,10 +8,10 @@ interface IFormBoxProps {
 };
 
 const FormBox: FC<IFormBoxProps> = (props) => {
-  const [accessPage, setAccessPage] = useState('login');
+  const [accessPage, setAccessPage] = useState<TPage>('login');
 
 
-  function handleChangeAccess(page:string):void {
+  function handleChangeAccess(page:TPage):void {
     return setAccessPage(page);
   };
 
@@ -19,6 +19,7 @@ const FormBox: FC<IFormBoxProps> = (props) => {
     <div className={styles['form-box']}>
       <AccessNav
         handleChangeAccess={handleChangeAccess}
+        currAccess={accessPage}
       />
 
       {
