@@ -44,7 +44,8 @@ const Login: FC<ILoginProps> = (props) => {
     setIsErrorLogin(false);
 
     try {
-      await login({form:loginForm});
+      const statusLogin = await login({form:loginForm});
+      // console.log(`statusLogin: `, statusLogin);
       return resetForm();
 
     } catch(caughtError) {

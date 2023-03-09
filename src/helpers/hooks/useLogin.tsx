@@ -4,17 +4,20 @@ import { ILoginForm } from '@/features/Home/_components/Intro/Form/_components/L
 import { urlPaths } from '../misc';
 import { fetchGet, IFetchGet } from '../_api';
 
+export type TStatus = 'success' | 'failed';
+
 interface IUseLoginProps {
   form: ILoginForm;
 };
 
 interface IUseLoginReturn {
-  login: ({ form }: IUseLoginProps) => Promise<void>;
+  login: ({ form }: IUseLoginProps) => Promise<TStatus>;
 };
 
 const useLogin = ():IUseLoginReturn => {
   const csrfToken = process?.env?.NEXT_PUBLIC_CSRFTOKEN ?? "";
   const initialLoginForm = {access:'', refresh:''};
+  let status:TStatus = 'failed';
   const [ tokens, setTokens ] = useState(initialLoginForm);
 
   useEffect(() => {
@@ -24,10 +27,9 @@ const useLogin = ():IUseLoginReturn => {
 
   function storeTokens() {
     if (!tokens.access || !tokens.refresh) return tokens;
-    status = 'success';
     localStorage.setItem('tokens', JSON.stringify(tokens));
-
   };
+
 
   const login = async ({form}:IUseLoginProps) => {
     const payload:IFetchGet = {
@@ -46,12 +48,15 @@ const useLogin = ():IUseLoginReturn => {
     // console.log('resFetchLogin', resFetchLogin);
 
     if (resFetchLogin?.message === "Login Successful") {
-
       setTokens({
         access: resFetchLogin.data?.access ?? "",
         refresh: resFetchLogin.data?.refresh ?? ""
       });
+
+      return status = 'success';
     };
+
+    return status;
 
   };
   return { login };

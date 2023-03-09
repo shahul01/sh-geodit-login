@@ -56,7 +56,7 @@ const Register: FC<IRegisterProps> = (props) => {
     try {
       const resFetchRegister = await fetchGet(payloadRegister);
       console.log(`resFetchRegister: `, resFetchRegister);
-      await login(payloadLogin);
+      const statusLogin = await login(payloadLogin);
       return resetForm();
 
     } catch (caughtError) {
