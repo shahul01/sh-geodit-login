@@ -3,7 +3,7 @@ import { FC, useEffect, useState } from 'react';
 import styles from './imageCard.module.css';
 
 interface IImageCardProps {
-  src: string | StaticImageData ;
+  src: string | StaticImageData;
   alt: string;
 };
 

@@ -28,22 +28,22 @@ const Clients: FC<IClientsProps> = (props) => {
             <p>{"It's all about clients we care a lot for them."}</p>
             <div className={styles['buttons-container']}>
 
-
             </div>
           </div>
-          <div className={styles['image-cards-container']}>
-            {
-              imageCards.map((currImage, idx) => (
-                <ImageCard
-                  key={idx}
-                  src={currImage.src}
-                  alt={currImage.alt}
-                />
 
-              ))
-            }
-          </div>
+        </div>
 
+        <div className={styles['image-cards-container']}>
+          {
+            imageCards.map((currImage, idx) => (
+              <ImageCard
+                key={idx}
+                src={currImage.src}
+                alt={currImage.alt}
+              />
+
+            ))
+          }
         </div>
       </div>
       <div className={styles['right']}>
