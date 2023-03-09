@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import LoginInputs, { ILoginForm } from './_components/LoginInputs/LoginInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
-import { simpleValidate } from '@/helpers/misc';
-import styles from './login.module.css';
+import { simpleValidate, urlPaths } from '@/helpers/misc';
 import { fetchGet, IFetchGet } from '@/helpers/_api';
+import styles from './login.module.css';
 
 interface ILoginProps {
 };
@@ -30,10 +30,14 @@ const Login: FC<ILoginProps> = (props) => {
   const [ tokens, setTokens ] = useState(initialToken);
 
   useEffect(() => {
-    if (!tokens.access || !tokens.refresh) return;
-    localStorage.setItem('tokens', JSON.stringify(tokens));
+    storeTokens();
 
   }, [tokens]);
+
+  function storeTokens() {
+    if (!tokens.access || !tokens.refresh) return;
+    localStorage.setItem('tokens', JSON.stringify(tokens));
+  };
 
   function handleForgotPassword() {
     return '';
@@ -48,7 +52,7 @@ const Login: FC<ILoginProps> = (props) => {
     setIsErrorLogin(false);
 
     const payload:IFetchGet = {
-      urlPath: "api/v1/users/login",
+      urlPath: urlPaths['login'],
       headers: {
         "Content-Type": "application/json",
         "X-CSRFTOKEN": "fgpkZS0u7b0CBpcHSE68nlAuzZ77PIG6mkDLVHbIwG4d3sSe7d9jJZhrwftzBXHX"
@@ -67,7 +71,7 @@ const Login: FC<ILoginProps> = (props) => {
         refresh: resFetchLogin.data?.refresh
       });
     };
-    // return resetForm();
+    return resetForm();
   };
 
   function resetForm() {

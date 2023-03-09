@@ -1,9 +1,9 @@
 import { FC, useEffect, useState } from 'react';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
-import { simpleValidate } from '@/helpers/misc';
-import styles from './register.module.css';
+import { simpleValidate, urlPaths } from '@/helpers/misc';
 import { fetchGet } from '@/helpers/_api';
+import styles from './register.module.css';
 
 interface IRegisterProps {
 };
@@ -21,7 +21,6 @@ const Register: FC<IRegisterProps> = (props) => {
   const [ isErrorRegister, setIsErrorRegister ] = useState(false);
   const [ registerForm, setRegisterForm ] = useState<IRegisterForm>(initialRegisterForm);
 
-
   async function handleRegister() {
     console.log('registerForm', registerForm);
     const allFilled = simpleValidate(registerForm);
@@ -30,7 +29,7 @@ const Register: FC<IRegisterProps> = (props) => {
     setIsErrorRegister(false);
 
     const payload = {
-      urlPath: "api/v1/users/register",
+      urlPath: urlPaths['register'],
       headers: {
         "Content-Type": "application/json",
         "X-CSRFTOKEN": "fgpkZS0u7b0CBpcHSE68nlAuzZ77PIG6mkDLVHbIwG4d3sSe7d9jJZhrwftzBXHX"
