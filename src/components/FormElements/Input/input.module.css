@@ -1,8 +1,15 @@
 .input {
   margin-bottom: 0.625rem;
   border: 1px solid hsla(var(--white), 0.3);
+  padding: 4px;
+  height: 2rem;
+  width: 26.25rem;
   color: hsl(var(--white));
   background-color: transparent;
+}
+
+.input:focus {
+  outline: none;
 }
 
 .input::placeholder {
