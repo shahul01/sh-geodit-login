@@ -8,13 +8,32 @@ import { fetchGet, IFetchGet } from '@/helpers/_api';
 interface ILoginProps {
 };
 
+interface IResLogin {
+  data: {
+    access: string;
+    refresh: string;
+  };
+  message: string;
+};
+
 const Login: FC<ILoginProps> = (props) => {
   const initialLoginForm:ILoginForm = {
     username: '',
     password: ''
   };
+  const initialToken = {
+    access: "",
+    refresh: ""
+  };
   const [ isErrorLogin, setIsErrorLogin ] = useState(false);
   const [ loginForm, setLoginForm ] = useState<ILoginForm>(initialLoginForm);
+  const [ tokens, setTokens ] = useState(initialToken);
+
+  useEffect(() => {
+    if (!tokens.access || !tokens.refresh) return;
+    localStorage.setItem('tokens', JSON.stringify(tokens));
+
+  }, [tokens]);
 
   function handleForgotPassword() {
     return '';
@@ -37,12 +56,18 @@ const Login: FC<ILoginProps> = (props) => {
       data: JSON.stringify({
         "username": loginForm.username,
         "password": loginForm.password,
-      })
+      }),
     };
 
-    const resFetchLogin = await fetchGet(payload);
+    const resFetchLogin:IResLogin = await fetchGet(payload);
     console.log('resFetchLogin', resFetchLogin);
-    return resetForm();
+    if (resFetchLogin?.message === "Login Successful") {
+      setTokens({
+        access: resFetchLogin.data?.access,
+        refresh: resFetchLogin.data?.refresh
+      });
+    };
+    // return resetForm();
   };
 
   function resetForm() {
