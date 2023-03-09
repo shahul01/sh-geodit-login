@@ -1,14 +1,16 @@
 import { FC, useEffect, useState } from 'react';
 
 interface IButtonProps {
+  onClick: ()=>void;
+  name: string;
 };
 
 const Button: FC<IButtonProps> = (props) => {
 
   return (
-    <div className='button'>
-
-    </div>
+    <button onClick={props.onClick}>
+      {props.name}
+    </button>
   )
 };
 

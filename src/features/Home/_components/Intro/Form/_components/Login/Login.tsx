@@ -4,6 +4,7 @@ import ErrorBanner from '../ErrorBanner/ErrorBanner';
 import { simpleValidate, urlPaths } from '@/helpers/misc';
 import { fetchGet, IFetchGet } from '@/helpers/_api';
 import styles from './login.module.css';
+import Button from '@/components/FormElements/Button/Button';
 
 interface ILoginProps {
 };
@@ -95,9 +96,10 @@ const Login: FC<ILoginProps> = (props) => {
         <p onClick={handleForgotPassword} >
           Forgot Password?
         </p>
-        <button onClick={handleLogin}>
-          Login
-        </button>
+        <Button
+          name='Login'
+          onClick={handleLogin}
+        />
       </div>
       <div className={styles['notes']}>
         <h3>For testing only.</h3>
