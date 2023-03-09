@@ -6,9 +6,6 @@
 ## Screenshots
 
 ### Home:
-![Home](./public/screenshots/Readme/Home-Login.png)
-
-<br />
 
 ![Home](./public/screenshots/Readme/Home.png)
 

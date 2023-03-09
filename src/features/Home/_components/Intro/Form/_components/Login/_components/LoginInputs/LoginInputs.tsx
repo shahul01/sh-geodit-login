@@ -24,6 +24,7 @@ const LoginInputs: FC<ILoginInputsProps> = ({loginForm, setLoginForm}) => {
   return (
     <div className={styles['login-inputs']}>
       <Input
+        width="full"
         type="text"
         name="username"
         placeholder='Username'
@@ -32,6 +33,7 @@ const LoginInputs: FC<ILoginInputsProps> = ({loginForm, setLoginForm}) => {
         value={loginForm.username}
       />
       <Input
+        width="full"
         type="password"
         name="password"
         placeholder='Password'

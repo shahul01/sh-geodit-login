@@ -27,6 +27,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
   return (
     <div className={styles['register-inputs']}>
       <Input
+        width='half'
         type="text"
         name="firstName"
         placeholder='First name'
@@ -35,6 +36,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         value={registerForm.firstName}
       />
       <Input
+        width='half'
         type="text"
         name="lastName"
         placeholder="Last name"
@@ -43,6 +45,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         value={registerForm.lastName}
       />
       <Input
+        width='half'
         type="text"
         name="username"
         placeholder="Username"
@@ -51,6 +54,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         value={registerForm.username}
       />
       <Input
+        width='half'
         type="password"
         name="password"
         placeholder="Password"
@@ -59,6 +63,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         value={registerForm.password}
       />
       <Input
+        width='full'
         type="text"
         name="phoneNumber"
         placeholder="Phone number"
