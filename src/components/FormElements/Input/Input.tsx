@@ -16,7 +16,7 @@ const Input: FC<IInputProps> = (props) => {
   function styleInput() {
     let style = {};
     props.width === 'full'
-      ? style = {...style, width: 'calc(100% - 0.625rem)'}
+      ? style = {...style, width: '100%'}
       : style = {...style, width: '12.40rem'}
 
     return style;
