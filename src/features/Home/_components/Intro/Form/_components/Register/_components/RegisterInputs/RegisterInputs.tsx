@@ -1,3 +1,4 @@
+import Input from '@/components/FormElements/Input/Input';
 import { ChangeEvent, Dispatch, FC, SetStateAction, useEffect, useState } from 'react';
 import styles from './registerInputs.module.css';
 
@@ -25,7 +26,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
 
   return (
     <div className={styles['register-inputs']}>
-      <input
+      <Input
         type="text"
         name="firstName"
         placeholder='First name'
@@ -33,7 +34,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         onChange={handleChangeRegister}
         value={registerForm.firstName}
       />
-      <input
+      <Input
         type="text"
         name="lastName"
         placeholder="Last name"
@@ -41,7 +42,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         onChange={handleChangeRegister}
         value={registerForm.lastName}
       />
-      <input
+      <Input
         type="text"
         name="username"
         placeholder="Username"
@@ -49,7 +50,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         onChange={handleChangeRegister}
         value={registerForm.username}
       />
-      <input
+      <Input
         type="password"
         name="password"
         placeholder="Password"
@@ -57,7 +58,7 @@ const RegisterInputs: FC<IRegisterInputsProps> = ({registerForm, setRegisterForm
         onChange={handleChangeRegister}
         value={registerForm.password}
       />
-      <input
+      <Input
         type="text"
         name="phoneNumber"
         placeholder="Phone number"
