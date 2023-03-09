@@ -1,19 +1,21 @@
 import { FC, useEffect, useState } from 'react';
 import LoginInputs, { ILoginForm } from './_components/LoginInputs/LoginInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
-import { simpleValidate, urlPaths } from '@/helpers/misc';
-import { fetchGet, IFetchGet } from '@/helpers/_api';
+import { simpleValidate } from '@/helpers/misc';
 import styles from './login.module.css';
 import Button from '@/components/FormElements/Button/Button';
+import useLogin from '@/helpers/hooks/useLogin';
 
 interface ILoginProps {
 };
 
-interface IResLogin {
-  data: {
-    access: string;
-    refresh: string;
-  };
+export interface ITokens {
+  access: string;
+  refresh: string;
+}
+
+export interface IResLogin {
+  data: ITokens;
   message: string;
 };
 
@@ -29,16 +31,7 @@ const Login: FC<ILoginProps> = (props) => {
   const [ isErrorLogin, setIsErrorLogin ] = useState(false);
   const [ loginForm, setLoginForm ] = useState<ILoginForm>(initialLoginForm);
   const [ tokens, setTokens ] = useState(initialToken);
-
-  useEffect(() => {
-    storeTokens();
-
-  }, [tokens]);
-
-  function storeTokens() {
-    if (!tokens.access || !tokens.refresh) return;
-    localStorage.setItem('tokens', JSON.stringify(tokens));
-  };
+  const { login } = useLogin();
 
   function handleForgotPassword() {
     return '';
@@ -49,30 +42,15 @@ const Login: FC<ILoginProps> = (props) => {
 
     const allFilled = simpleValidate(loginForm);
     if (!allFilled) return setIsErrorLogin(true);
-
     setIsErrorLogin(false);
 
-    const payload:IFetchGet = {
-      urlPath: urlPaths['login'],
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRFTOKEN": "fgpkZS0u7b0CBpcHSE68nlAuzZ77PIG6mkDLVHbIwG4d3sSe7d9jJZhrwftzBXHX"
-      },
-      data: JSON.stringify({
-        "username": loginForm.username,
-        "password": loginForm.password,
-      }),
-    };
+    try {
+      await login({form:loginForm});
+      return resetForm();
 
-    const resFetchLogin:IResLogin = await fetchGet(payload);
-    console.log('resFetchLogin', resFetchLogin);
-    if (resFetchLogin?.message === "Login Successful") {
-      setTokens({
-        access: resFetchLogin.data?.access,
-        refresh: resFetchLogin.data?.refresh
-      });
+    } catch(caughtError) {
+      return console.error(caughtError);
     };
-    return resetForm();
   };
 
   function resetForm() {
