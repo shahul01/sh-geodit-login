@@ -32,7 +32,7 @@ const Login: FC<ILoginProps> = (props) => {
 
   function resetForm() {
     return setLoginForm(initialLoginForm);
-  }
+  };
 
   return (
     <div className={styles['login']}>

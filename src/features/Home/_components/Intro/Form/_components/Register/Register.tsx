@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 import RegisterInputs, { IRegisterForm } from './_components/RegisterInputs/RegisterInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
 import { simpleValidate } from '@/helpers/misc';
-import { fetchRegister } from './_api/register';
 import styles from './register.module.css';
+import { fetchGet } from '@/helpers/_api';
 
 interface IRegisterProps {
 };
@@ -30,6 +30,7 @@ const Register: FC<IRegisterProps> = (props) => {
     setIsErrorRegister(false);
 
     const payload = {
+      urlPath: "api/v1/users/register",
       headers: {
         "Content-Type": "application/json",
         "X-CSRFTOKEN": "fgpkZS0u7b0CBpcHSE68nlAuzZ77PIG6mkDLVHbIwG4d3sSe7d9jJZhrwftzBXHX"
@@ -43,7 +44,7 @@ const Register: FC<IRegisterProps> = (props) => {
       }),
     };
 
-    const resFetchRegister = await fetchRegister(payload);
+    const resFetchRegister = await fetchGet(payload);
     console.log(`resFetchRegister: `, resFetchRegister);
     return resetForm();
   };
