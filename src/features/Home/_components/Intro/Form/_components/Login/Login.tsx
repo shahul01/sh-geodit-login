@@ -97,6 +97,8 @@ const Login: FC<ILoginProps> = (props) => {
           Forgot Password?
         </p>
         <Button
+          isTransparent={false}
+          color="themePrimary"
           name='Login'
           onClick={handleLogin}
         />

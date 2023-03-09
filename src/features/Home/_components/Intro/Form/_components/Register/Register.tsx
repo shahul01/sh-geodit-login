@@ -68,6 +68,8 @@ const Register: FC<IRegisterProps> = (props) => {
       </div>
       <div className={styles['buttons-container']}>
         <Button
+          isTransparent={false}
+          color="themePrimary"
           onClick={handleRegister}
           name='Register'
         />
