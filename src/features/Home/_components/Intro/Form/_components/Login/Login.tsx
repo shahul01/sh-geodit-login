@@ -102,6 +102,7 @@ const Login: FC<ILoginProps> = (props) => {
         />
       </div>
       <div className={styles['notes']}>
+        <hr />
         <h3>For testing only.</h3>
         <p>username test & password test!@123</p>
       </div>
