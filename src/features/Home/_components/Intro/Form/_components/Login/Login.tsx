@@ -84,12 +84,13 @@ const Login: FC<ILoginProps> = (props) => {
         loginForm={loginForm}
         setLoginForm={setLoginForm}
       />
-
-      {isErrorLogin && (
-        <ErrorBanner
-          message = 'Kindly fill all the fields properly.'
-        />
-      )}
+      <div className={styles['error-banner-container']}>
+        {isErrorLogin && (
+          <ErrorBanner
+            message = 'Kindly fill all the fields properly.'
+          />
+        )}
+      </div>
       <div className="buttons-container">
         <p className={styles['btn-forgot']} onClick={handleForgotPassword} >
           Forgot Password?

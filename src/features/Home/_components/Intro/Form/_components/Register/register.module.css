@@ -2,6 +2,10 @@
 
 }
 
+.register .error-banner-container {
+  height: 1.5rem;
+}
+
 .register button {
   padding: 0.5rem 2rem;
   width: 8rem;

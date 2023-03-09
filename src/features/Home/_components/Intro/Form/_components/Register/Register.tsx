@@ -58,11 +58,13 @@ const Register: FC<IRegisterProps> = (props) => {
         registerForm={registerForm}
         setRegisterForm={setRegisterForm}
       />
-      {isErrorRegister && (
-        <ErrorBanner
-          message='Kindly fill all the fields properly.'
-        />
-      )}
+      <div className={styles['error-banner-container']}>
+        {isErrorRegister && (
+          <ErrorBanner
+            message='Kindly fill all the fields properly.'
+          />
+        )}
+      </div>
       <div className={styles['buttons-container']}>
         <button onClick={handleRegister}>
           Register

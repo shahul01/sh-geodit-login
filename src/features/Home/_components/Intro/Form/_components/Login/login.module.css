@@ -2,6 +2,10 @@
 
 }
 
+.error-banner-container {
+  height: 1.5rem;
+}
+
 .login button {
   padding: 0.5rem 2rem;
   width: 8rem;
@@ -13,6 +17,6 @@
   font-size: 12px;
 }
 
-.login .notes h3 {
+.login .notes p {
   font-size: 14px;
 }
