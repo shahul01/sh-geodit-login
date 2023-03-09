@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import styles from './button.module.css';
 
 interface IButtonProps {
   onClick: ()=>void;
@@ -8,7 +9,10 @@ interface IButtonProps {
 const Button: FC<IButtonProps> = (props) => {
 
   return (
-    <button onClick={props.onClick}>
+    <button
+      className={styles['button']}
+      onClick={props.onClick}
+    >
       {props.name}
     </button>
   )

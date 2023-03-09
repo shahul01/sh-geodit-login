@@ -2,6 +2,7 @@
 
 :root {
   --white: 0, 0%, 100%;
+  --theme-primary: 214, 84%, 56%;
   --max-width: 1100px;
   --border-radius: 12px;
 }

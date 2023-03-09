@@ -1,0 +1,11 @@
+
+
+.button {
+  padding: 0.75rem 2rem;
+  min-width: 6.875rem;
+  /* width: 8rem; */
+  color: hsl(var(--theme-primary));
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}

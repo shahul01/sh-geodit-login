@@ -9,17 +9,11 @@
 .login .buttons-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .login .buttons-container p {
   font-weight: bold;
-  cursor: pointer;
-  user-select: none;
-}
-
-.login button {
-  padding: 0.5rem 2rem;
-  width: 8rem;
   cursor: pointer;
   user-select: none;
 }
