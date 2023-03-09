@@ -1,6 +1,6 @@
-import { IResLogin, ITokens } from '@/features/Home/_components/Intro/Form/_components/Login/Login';
+import { useEffect, useState } from 'react';
+import { IResLogin } from '@/features/Home/_components/Intro/Form/_components/Login/Login';
 import { ILoginForm } from '@/features/Home/_components/Intro/Form/_components/Login/_components/LoginInputs/LoginInputs';
-import { useEffect, useRef, useState } from 'react';
 import { urlPaths } from '../misc';
 import { fetchGet, IFetchGet } from '../_api';
 
@@ -15,7 +15,6 @@ interface IUseLoginReturn {
 const useLogin = ():IUseLoginReturn => {
   const csrfToken = process?.env?.NEXT_PUBLIC_CSRFTOKEN ?? "";
   const initialLoginForm = {access:'', refresh:''};
-  let status = 'failed'; //
   const [ tokens, setTokens ] = useState(initialLoginForm);
 
   useEffect(() => {
@@ -46,7 +45,7 @@ const useLogin = ():IUseLoginReturn => {
     const resFetchLogin: IResLogin = await fetchGet(payload);
     // console.log('resFetchLogin', resFetchLogin);
 
-    if (true) {
+    if (resFetchLogin?.message === "Login Successful") {
 
       setTokens({
         access: resFetchLogin.data?.access ?? "",
