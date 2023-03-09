@@ -1,0 +1,10 @@
+.input {
+  margin-bottom: 0.625rem;
+  border: 1px solid hsla(var(--white), 0.3);
+  color: hsl(var(--white));
+  background-color: transparent;
+}
+
+.input::placeholder {
+  color: hsl(var(--white));
+}

@@ -1,4 +1,5 @@
 import { ChangeEvent, FC, useEffect, useState } from 'react';
+import styles from './input.module.css';
 
 interface IInputProps {
   type: string;
@@ -13,6 +14,7 @@ const Input: FC<IInputProps> = (props) => {
 
   return (
     <input
+      className={styles['input']}
       type={props.type}
       name={props.name}
       placeholder={props.placeholder}

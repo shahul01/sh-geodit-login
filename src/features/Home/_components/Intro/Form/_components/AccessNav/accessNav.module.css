@@ -1,6 +1,7 @@
 .access-nav {
   display: flex;
   gap: 1.875rem;
+  margin-bottom: 1.25rem;
   font-size: 1.125rem;
   font-weight: bold;
   cursor: pointer;
@@ -17,4 +18,5 @@
 
 .access-nav hr {
   margin-top: 0.5rem;
+  font-size: bold;
 }
