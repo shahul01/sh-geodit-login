@@ -5,8 +5,8 @@
 .intro .content {
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding: 1rem 1rem;
+  align-items: flex-start;
+  padding: 4.875rem 1rem 1rem 1rem;
   height: 37.5rem;
   width: 100%;
   color: hsl(0, 0%, 100%);

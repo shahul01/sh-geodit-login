@@ -16,9 +16,9 @@ const Intro: FC<IIntroProps> = (props) => {
 
       <div className={styles['content']}>
         <IntroTexts />
-        <IntroBanner />
         <Form />
       </div>
+
     </div>
   )
 };

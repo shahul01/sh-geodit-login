@@ -1,14 +1,23 @@
-.intro-texts h1 {
+.intro-texts {
+  display: flex;
+  width: 41.625rem;
+}
+
+.intro-texts .content h1 {
   margin-bottom: 0.313rem;
   font-size: 3rem;
 }
 
-.intro-texts p {
+.intro-texts .content p {
   margin-bottom: 0.5rem;
   font-size: 1.188rem;
 }
 
-.intro-texts h3 {
+.intro-texts .content h3 {
   margin-bottom: 1.625rem;
   font-size: 1.5rem;
+}
+
+.intro-texts .image-container {
+
 }
