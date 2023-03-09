@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { IObject } from '@/types/global';
 
-interface IFetchGet {
+export interface IFetchGet {
   urlPath:string
   headers: IObject<string>;
   data: string;

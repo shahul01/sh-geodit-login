@@ -3,6 +3,7 @@ import LoginInputs, { ILoginForm } from './_components/LoginInputs/LoginInputs';
 import ErrorBanner from '../ErrorBanner/ErrorBanner';
 import { simpleValidate } from '@/helpers/misc';
 import styles from './login.module.css';
+import { fetchGet, IFetchGet } from '@/helpers/_api';
 
 interface ILoginProps {
 };
@@ -19,7 +20,7 @@ const Login: FC<ILoginProps> = (props) => {
     return '';
   };
 
-  function handleLogin() {
+  async function handleLogin() {
     console.log(`loginForm: `, loginForm);
 
     const allFilled = simpleValidate(loginForm);
@@ -27,6 +28,20 @@ const Login: FC<ILoginProps> = (props) => {
 
     setIsErrorLogin(false);
 
+    const payload:IFetchGet = {
+      urlPath: "api/v1/users/login",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFTOKEN": "fgpkZS0u7b0CBpcHSE68nlAuzZ77PIG6mkDLVHbIwG4d3sSe7d9jJZhrwftzBXHX"
+      },
+      data: JSON.stringify({
+        "username": loginForm.username,
+        "password": loginForm.password,
+      })
+    };
+
+    const resFetchLogin = await fetchGet(payload);
+    console.log('resFetchLogin', resFetchLogin);
     return resetForm();
   };
 
