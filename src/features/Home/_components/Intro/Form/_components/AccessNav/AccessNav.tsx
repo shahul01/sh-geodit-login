@@ -1,4 +1,5 @@
 import { FC, useEffect, useState } from 'react';
+import styles from './accessNav.module.css';
 
 interface IAccessNavProps {
   handleChangeAccess: (arg0:string)=>void;
@@ -7,9 +8,15 @@ interface IAccessNavProps {
 const AccessNav: FC<IAccessNavProps> = (props) => {
 
   return (
-    <div className="access-nav">
-      <button onClick={() => props.handleChangeAccess('login')}>Login</button>
-      <button onClick={() => props.handleChangeAccess('register')}>Register</button>
+    <div className={styles['access-nav']}>
+      <div className={styles['nav-button']}>
+        <span onClick={() => props.handleChangeAccess('login')}>Login</span>
+        <hr />
+      </div>
+      <div className={styles['nav-button']}>
+        <span onClick={() => props.handleChangeAccess('register')}>Register</span>
+        <hr />
+      </div>
     </div>
   )
 };
