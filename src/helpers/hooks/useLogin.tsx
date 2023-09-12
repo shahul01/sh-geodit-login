@@ -49,8 +49,8 @@ const useLogin = ():IUseLoginReturn => {
 
     if (resFetchLogin?.message === "Login Successful") {
       setTokens({
-        access: resFetchLogin.data?.access ?? "",
-        refresh: resFetchLogin.data?.refresh ?? ""
+        access: resFetchLogin.data?.access || "",
+        refresh: resFetchLogin.data?.refresh || ""
       });
 
       return status = 'success';

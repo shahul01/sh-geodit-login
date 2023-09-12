@@ -24,10 +24,6 @@ const Login: FC<ILoginProps> = (props) => {
     username: '',
     password: ''
   };
-  const initialToken = {
-    access: "",
-    refresh: ""
-  };
   const [ isErrorLogin, setIsErrorLogin ] = useState(false);
   const [ loginForm, setLoginForm ] = useState<ILoginForm>(initialLoginForm);
   const { login } = useLogin();

@@ -7,7 +7,7 @@ export interface IFetchGet {
   data: string;
 };
 
-const baseURL = process?.env?.NEXT_PUBLIC_BASEURL ?? "http://localhost:8888";
+const baseURL = process?.env?.NEXT_PUBLIC_BASEURL || "http://localhost:8888";
 
 export async function fetchGet({urlPath, headers, data}:IFetchGet) {
   const fullUrl = `${baseURL}/${urlPath}`;
